@@ -2,7 +2,7 @@
 
 Micropython driver for the well-known untrasonic sensor [HC-SR04](https://www.mpja.com/download/hc-sr04_ultrasonic_module_user_guidejohn.pdf)
 
-The driver has been tested on Wemos D1 mini PRO, but It should work on whatever other micropython board, 
+The driver has been tested on microbit v1.5, but It should work on newer microbit board, 
 if anyone find problems in other boards, please open an issue and we'll see.
 
 ## Motivation
@@ -21,9 +21,10 @@ floating point capabilities.
 The `distance_cm()` method returns a `float` with the distance measured by the sensor.
 
 ```python
+from microbit import *
 from hcsr04 import HCSR04
 
-sensor = HCSR04(trigger_pin=16, echo_pin=0)
+sensor = HCSR04(trigger_pin=pin2, echo_pin=pin1)
 
 distance = sensor.distance_cm()
 
@@ -42,9 +43,10 @@ The default timeout is based on the sensor limit (4m), but we can also define a 
 passing the new value in microseconds to the constructor.
 
 ```python
+from microbit import *
 from hcsr04 import HCSR04
 
-sensor = HCSR04(trigger_pin=16, echo_pin=0, echo_timeout_us=1000000)
+sensor = HCSR04(trigger_pin=pin2, echo_pin=pin1, echo_timeout_us=1000000)
 
 distance = sensor.distance_cm()
 
@@ -56,9 +58,10 @@ print('Distance:', distance, 'cm')
 When the driver reaches the timeout while is listening the echo pin the error is converted to `OSError('Out of range')`
 
 ```python
+from microbit import *
 from hcsr04 import HCSR04
 
-sensor = HCSR04(trigger_pin=16, echo_pin=0, echo_timeout_us=10000)
+sensor = HCSR04(trigger_pin=pin2, echo_pin=pin1, echo_timeout_us=10000)
 
 try:
     distance = sensor.distance_cm()
