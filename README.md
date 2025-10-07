@@ -1,4 +1,4 @@
-# HC-SR04 Sensor driver in micropython
+# HC-SR04 Sensor driver in micropython for microbit
 
 Micropython driver for the well-known untrasonic sensor [HC-SR04](https://www.mpja.com/download/hc-sr04_ultrasonic_module_user_guidejohn.pdf)
 
